@@ -13,7 +13,7 @@
 
           <nav class="flex gap-2 items-center">
             <a class="font-bold uppercase text-gray-600 text-sm" href="">Login</a>
-            <a class="font-bold uppercase text-gray-600 text-sm" href="">Signup</a>
+            <a class="font-bold uppercase text-gray-600 text-sm" href="/signup">Signup</a>
           </nav>
         </div>
       </header>
@@ -23,7 +23,7 @@
         @yield('content')
       </main>
 
-      <footer class="text-center p-5 text-gray-500 font-bold uppercase">
+      <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10">
         Devstagram - All rights reserved - {{ now()->year }}
       </footer>
     </body>
