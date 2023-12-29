@@ -11,10 +11,26 @@
         <div class="container mx-auto flex justify-between items-center">
           <h1 class="text-xl font-black">Devstagram</h1>
 
+          @auth
+          <nav class="flex gap-2 items-center">
+            <a class="font-bold text-gray-600 text-sm" href="#">
+              Hi <span class="font-normal">{{ auth()->user()->username }}</span>
+            </a>
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="font-bold uppercase text-gray-600 text-sm" href="{{ route('logout') }}">
+                Logout
+              </button>
+            </form>
+          </nav>
+          @endauth
+
+          @guest
           <nav class="flex gap-2 items-center">
             <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}">Login</a>
             <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('register') }}">Signup</a>
           </nav>
+          @endguest
         </div>
       </header>
 
