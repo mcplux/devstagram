@@ -83,7 +83,6 @@
             name="password"
             placeholder="Create a password"
             class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
-            value="{{ old('password') }}"
             required
           />
           @error('password')
@@ -98,7 +97,7 @@
             Repeat Password
           </label>
           <input
-            type="text"
+            type="password"
             id="password_confirmation"
             name="password_confirmation"
             placeholder="Enter your password again"
