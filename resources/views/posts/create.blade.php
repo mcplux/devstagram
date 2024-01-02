@@ -7,7 +7,7 @@
 @section('content')
   <div class="md:flex items-center">
     <div class="md:w-1/2 px-10">
-      Dropzone
+      <form id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col  justify-center items-center"></form>
     </div>
     <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-lg mt-10 md:mt-0">
       <form method="POST" action="" novalidate>
