@@ -7,20 +7,24 @@ const dropzone = new Dropzone('#dropzone', {
     addRemoveLinks: true,
     maxFiles: 1,
     uploadMultiple: false,
-})
+    init: function () {
+        if(document.querySelector('[name="image"]').value.trim()) {
+            const postedImage = {}
+            postedImage.size = 1024
+            postedImage.name = document.querySelector('[name="image"]').value.trim()
 
-dropzone.on('sending', (file, xhr, formData) => {
-    console.log(formData)
+            this.options.addedfile.call(this, postedImage)
+            this.options.thumbnail.call(this, postedImage, `/uploads/${postedImage.name}`)
+
+            postedImage.previewElement.classList.add('dz-success', 'dz-complete')
+        }
+    }
 })
 
 dropzone.on('success', (file, response) => {
-    console.log(response)
-})
-
-dropzone.on('error', (file, message) => {
-    console.log(message)
+    document.querySelector('[name="image"]').value = response.image
 })
 
 dropzone.on('removedfile', () => {
-    console.log('Removed')
+    document.querySelector('[name="image"]').value = ''
 })
